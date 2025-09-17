@@ -1,0 +1,19 @@
+/*a class requires a special symbol which is the "." after that there is the name of the class*/
+/* class is used with the elements in html*/
+.red-heading{
+    color: red;
+}
+
+/* Id attribute */
+#main{
+    color: rgb(34, 155, 61);
+}
+
+/* Attribute selector */
+p[draggable]{
+    color: blue;
+}
+/* "*" universal selector */
+*{
+    color: red;
+}

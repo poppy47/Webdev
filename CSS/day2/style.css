@@ -1,0 +1,24 @@
+body{
+    background-color:white;
+    color: black;
+    text-align: center;
+}
+
+#a{
+    color: white; 
+    background-color: black;
+}
+
+.img{
+    height: 200;
+    width: 200;
+    border: 10cap;
+    border-color: rgb(17, 196, 76);
+}
+
+#box{
+    width: 200px; 
+    height: 200px; 
+    background-color: blue; 
+    border: 2px solid , black;
+}

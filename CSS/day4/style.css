@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    height: 100vh;
+    position: relative;
+}
+
+div {
+    background-color: blue;
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+@media(max-width:600px){
+    div{
+        height: 100px; 
+        width: 100px;
+    }
+}
+
+@media(min-width:600px){
+    h1{
+        font-size: 15px;
+    }
+
+/* combination system */ 
+@media(min-width: 600px) and (max-width:900px){
+    /*Styles for screens between 600px and 900px  */
+}
+@media(max-width:600px) and (min-width: 900px){
+    /* Styles for screens less than 600px and greater than 900px */
+}
+
+}

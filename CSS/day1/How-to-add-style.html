@@ -1,0 +1,26 @@
+<!--1.Inline adding of css: Not recommeded : use only when you have to targe a single element-->
+<html style="background-color: aqua;"></html>
+<!--2.Internal Way to add CSS : use only when you have to target a single wab page-->
+<html>
+    <head>
+        <style>
+            html{
+                background-color:red;
+            }
+        </style>
+        <h1 style="color: black;">Welcome to Monday Night Raw</h1>
+    </head>
+</html>
+
+<!-- 3.External Way to add the CSS : For the multipages wabsite -->
+<!--rel menas the reletionship and href is the adress of our syle file -->
+ <html>
+    <head>
+        <link
+            rel="stylesheet"  
+            href="./style.css"
+        />
+    </head>
+ </html>
+
+

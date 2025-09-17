@@ -1,0 +1,31 @@
+#pixel{
+    font-size: 20px;
+}
+
+#point{
+    font-size: 20pt;
+}
+
+#em{
+    font-size: 1em;
+}
+
+#rem{
+    font-size: 1rem;
+}
+
+footer{
+    font-size: 12pt;
+}
+
+html{
+    font-size: xx-large;
+}
+
+
+/*px means the pixal and 1 px = 1/96 the part of the inch it is around the 0.26 mm */
+/* pt means the point which is around the 1/72th part of the inch. */
+/* when we use the 12 size in the word it is same as the points */ 
+
+
+
