@@ -1,0 +1,66 @@
+body {
+  margin-left: 10%;
+margin-right: 10%;
+    margin-top: 5%;
+  background-color: black;
+  color: white;
+}
+
+h1{
+    font-size: 47.3px;
+    font-family: 'Open Sauce One', sans-serif;
+    margin-bottom: 0px;
+}
+
+h3{
+    font-size: 16.6px;
+    font-family: 'Open Sauce One', sans-serif;
+}
+
+.heading{
+    display: flex;
+    text-align: left;
+    width: 100%;
+}
+
+.namepic{
+    width: 50%;
+}
+
+img{
+    border-radius: 10%;
+    width: 100%;
+}
+
+.intro{
+    width: 50%;
+    margin-left: 5%;
+    margin-top: 2%;
+    text-align: left;
+    font-family: 'Open Sauce One', sans-serif;
+    font-size: 20px;;
+}
+
+.intro >button{
+    align-items: right;
+}
+
+button {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    font-family: 'Open Sauce One', sans-serif;
+}
+
+button:hover {
+    background-color:skyblue;
+    color: white;
+}
