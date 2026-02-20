@@ -40,9 +40,8 @@ function animatePress(currentColour) {
 }
 
 $("body").keydown(function () {
-  if (started == false) {
+  if (!started) {
     nextSequence();
-    $("h1").text("Level " + String(level));
     started = true;
   }
 });
@@ -64,9 +63,7 @@ function checkAnswer(currentLevel) {
       $("body").removeClass("game-over");
     }, 200);
     $("h1").text("Game Over, Press Any key to Restart");
-    $("body").keydown(function () {
-      startOver();
-    });
+    startOver() 
   }
 }
 

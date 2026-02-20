@@ -1,0 +1,15 @@
+{
+  "name": "2.3-npm",
+  "version": "1.0.0",
+  "description": "i am learning",
+  "license": "ISC",
+  "author": "sukhdev",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "sillyname": "^0.1.0"
+  }
+}
