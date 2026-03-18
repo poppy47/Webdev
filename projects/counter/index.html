@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, World!</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    
+    <h2>Counter</h2>
+    
+    <p id = "count">10</p> 
+    
+    <button onclick="increaseCount()">+</button> 
+    <button onclick="decreaseCount()">-</button>
+    <button onclick="resetCount()">Reset</button> 
+    <button onclick="saveCount()">Save</button>
+    <button onclick="loadCount()">Load</button>
+    
+    
+    <script type="text/javascript" charset="utf-8"> 
+    let count = 10;
+    loadCount(); 
+function updateCount(){
+  document.getElementById("count").innerHTML = count; 
+}
+
+function increaseCount(){
+  count++; 
+  updateCount(); 
+}
+
+function decreaseCount(){
+  if (count > 0){
+  count--; 
+  updateCount(); 
+  }else{
+    document.getElementById("count").innerHTML = "You can't decrese further."
+  }
+}
+
+function resetCount(){
+  count = 0 ; 
+  updateCount(); 
+}
+
+
+function saveCount(){
+  localStorage.setItem("count", count)
+}
+
+function loadCount(){
+  let saved = localStorage.getItem("count"); 
+  if ( saved != null ){
+    count = Number(saved); 
+  }
+  updateCount(); 
+}
+    </script>
+    
+
+  </body>
+</html>
