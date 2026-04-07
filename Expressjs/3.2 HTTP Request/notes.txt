@@ -1,0 +1,19 @@
+there are the 5 types of request 
+1. GET -- Retrieves information from the specific resource,  and should only be used to request data(not to modify it ) 
+2. POST -- Sends data to the server for processing , usually resulting in a change in the server state or side effects on the server 
+3. PUT -- updates a current resource or creates it if it does'nt exist, with the client providing a complete and updated copy of the resource -- the bicycle from amazon  example 
+4. PATCH -- updates parts of an existing resource , with the client providing only the parts of the resource that need to be updated. -- the bicycle's tyre 's example 
+5. DELETE -- removes the specific resource from the server 
+
+
+#HTTP response status codes indicate wheather a specific http request has been successfully completed. response are grouped in five classes: 
+1.informational responses(100-199) 
+2.successful responses (200-299)
+3.redirection messages(300-399) 
+4.client error responses(400-499) 
+5. server error responses (500-599) 
+
+200 - ok 
+201 - created 
+404 - not found 
+301 - redirected to the new location 
