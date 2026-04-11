@@ -1,0 +1,12 @@
+what is the a middleware : 
+it is kind of the person which sites between the server and route handlers 
+
+
+what kind of things does a middleware do 
+1. request preprocessing 
+2. logging -- type , status 
+3. Authentication and authorization 
+4. errors 
+
+#commnly use middleware in node and express : body-parser
+
