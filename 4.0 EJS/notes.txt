@@ -1,0 +1,18 @@
+#Templating Languages 
+1.handlebars 
+2.pug 
+3.jinja -- for python 
+4.Twig -- for PHP 
+5.EJS -- for javascript 
+
+#EJS TAGS 
+<%= variable %>      --    js output  
+<% console.log("hello") %> -- JS Execute 
+<%- %>      -- Render HTML 
+<%% %%>  --Show <% or %> 
+<%#  This is a comment %>  --Stop Execution 
+<%- include("<FILE NAME>")  -- insert another EJS file 
+
+#How to include the static css and images in the express 
+app.use(express.static("public")); 
+

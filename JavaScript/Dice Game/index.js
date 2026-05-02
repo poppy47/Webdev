@@ -1,3 +1,4 @@
+alert("it's working")
 var randomNumber1 = Math.floor(Math.random()*6+1)
 
 var img1 = document.getElementsByClassName("img1")[0]
