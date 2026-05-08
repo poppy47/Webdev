@@ -1,6 +1,6 @@
 #Templating Languages 
 1.handlebars 
-2.pug 
+2.pug -- for php 
 3.jinja -- for python 
 4.Twig -- for PHP 
 5.EJS -- for javascript 
