@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <rect width="120" height="120" rx="16" fill="#61DAFB"/>
+  <circle cx="60" cy="40" r="10" fill="#0b2233" />
+  <text x="50%" y="78%" font-family="Segoe UI, Roboto, Arial" font-weight="800" font-size="34" text-anchor="middle" fill="#072034">React</text>
+</svg>

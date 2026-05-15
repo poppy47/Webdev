@@ -1,0 +1,23 @@
+#what is the api ? 
+it lets the applicatation to communicate with each other 
+
+what is JSON? 
+it's the javascript object notation - it's a way to format the data to sent over the internet 
+#how to convert the js object -> json
+const jsonData = JSON.stringify(data); 
+#How to convert the json to js object 
+const data = JSON.parse(jsonData); 
+
+
+#Axios -- a node module to make the requests 
+
+
+Types of authentication 
+1. No  Authentication 
+2. Basic Authentication -- passes the username and password in the base64 encoded string can use the base 64 decoder to get the username and password -- passed the data in cryptography 
+3. API key authentication -- use the api key to authenticate the user -- 
+4. Token Based Authentication -- use the username and password to generate the token - OAuth - open authentication 
+
+what is the difference between the authentication and authorization ? 
+authroization--> a user who is authroized with the servers can get the api key and use the authentication -- allows us to use the api 
+authentication--> if you have a user they can authenticate with your servers -- allows you to login 

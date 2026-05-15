@@ -1,21 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio</title>
+  <meta name="description" content="Professional developer portfolio showcasing projects, skills and contact information.">
+  <title>Developer Portfolio — Sukhdev Pratap Singh</title>
+  <link rel="stylesheet" href="./style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <h1>My Portfolio</h1>
-  <p>Welcome to my portfolio page. Here are some of my projects:</p>
-    <div>
-    <li><a>Quiz Master</a></li>
+  <aside class="sidebar" aria-label="Primary">
+    <div class="sidebar-inner">
+      <div class="profile">
+        <div class="profile-photo">
+          <img src="images/js.svg" alt="profile" />
+        </div>
+        <div class="profile-name">Sukhdev Pratap Singh</div>
+        <div class="profile-role">Frontend / Full‑stack Developer</div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a class="btn small" href="#contact">Resume</a>
+        <div class="social small">
+          <a href="#">GitHub</a>
+          <a href="#">LinkedIn</a>
+        </div>
+      </div>
     </div>
+  </aside>
+
+  <main class="content">
+    <section class="hero reveal">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h1>Hi, I'm Sukhdev— a thoughtful Developer.</h1>
+          <p class="lead">I build clean, accessible, performant web apps and delightful developer tools. I care about
+            user-experience, maintainable code, and shipping impact.</p>
+          <div class="hero-cta">
+            <a class="btn primary" href="#projects">See my work</a>
+            <a class="btn outline" href="#contact">Get in touch</a>
+          </div>
+          <ul class="meta-list">
+            <li><strong>Location:</strong> City, Country</li>
+            <li><strong>Role:</strong> Frontend / Full‑stack Developer</li>
+          </ul>
+        </div>
+        <div class="hero-photo" aria-hidden="true">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g" x1="0" x2="1">
+                <stop offset="0%" stop-color="#6EE7B7" />
+                <stop offset="100%" stop-color="#3B82F6" />
+              </linearGradient>
+            </defs>
+            <rect width="200" height="200" rx="20" fill="url(#g)" />
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="18"
+              fill="rgba(255,255,255,0.95)">Your Photo</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="container about reveal">
+      <h2>About</h2>
+      <p>I’m a developer who enjoys turning complex problems into simple, beautiful products. I specialize in modern
+        JavaScript, accessibility, and performance optimization.</p>
+      <p>I enjoy mentoring engineers, contributing to open-source, and improving developer workflows. My approach
+        balances pragmatic engineering with strong UX and maintainability.</p>
+      <p>Currently exploring distributed systems, developer tooling, and ways to make front-end performance measurably
+        better.</p>
+      <div class="about-grid">
+        <div>
+          <h3>What I do</h3>
+          <ul>
+            <li>Build responsive, accessible web applications</li>
+            <li>Design and maintain component libraries</li>
+            <li>Ship reliable, well-tested features</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Resume</h3>
+          <p>Experienced with React, TypeScript, Node.js, and cloud deployments. Available for full‑time and contract
+            work.</p>
+          <a class="btn small" href="#contact">Download resume</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="container projects reveal">
+      <h2>Selected Projects</h2>
+      <div class="projects-grid">
+        <article class="card">
+          <div class="card-media">Project 1</div>
+          <div class="card-body">
+            <h3>Project Title One</h3>
+            <p>Short description explaining the problem solved, the tech used, and the impact.</p>
+            <div class="card-actions">
+              <a href="#" class="link">Live</a>
+              <a href="#" class="link">Code</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-media">Project 2</div>
+          <div class="card-body">
+            <h3>Project Title Two</h3>
+            <p>Short description with measurable outcome and the primary technologies used.</p>
+            <div class="card-actions">
+              <a href="#" class="link">Live</a>
+              <a href="#" class="link">Code</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-media">Project 3</div>
+          <div class="card-body">
+            <h3>Project Title Three</h3>
+            <p>Short description — highlight interesting technical challenge.</p>
+            <div class="card-actions">
+              <a href="#" class="link">Live</a>
+              <a href="#" class="link">Code</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" class="container skills reveal">
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card reveal">
+          <div class="skill-icon"><img src="images/js.svg" alt="JavaScript"></div>
+          <div class="skill-name">JavaScript / TypeScript</div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon"><img src="images/react.svg" alt="React"></div>
+          <div class="skill-name">React / Frontend</div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon"><img src="images/node.svg" alt="Node.js"></div>
+          <div class="skill-name">Node.js / Back-end</div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon"><img src="images/a11y.svg" alt="Accessibility"></div>
+          <div class="skill-name">Accessibility</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certificates" class="container certificates reveal">
+      <h2>Certificates</h2>
+      <div class="cert-grid">
+        <a class="cert-card" href="#" target="_blank" rel="noopener">
+          <div class="cert-thumb">Cert 1</div>
+          <div class="cert-body">
+            <h3>Frontend Performance</h3>
+            <p>Issuer — 2024</p>
+          </div>
+        </a>
+
+        <a class="cert-card" href="#" target="_blank" rel="noopener">
+          <div class="cert-thumb">Cert 2</div>
+          <div class="cert-body">
+            <h3>Accessibility Basics</h3>
+            <p>Issuer — 2023</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section id="contact" class="container contact reveal">
+      <h2>Contact</h2>
+      <p>If you'd like to work together, email me at <a href="mailto:you@example.com">you@example.com</a> or use the
+        form below.</p>
+      <form class="contact-form" action="mailto:you@example.com" method="post" enctype="text/plain">
+        <label>
+          <span>Name</span>
+          <input type="text" name="name" required>
+        </label>
+        <label>
+          <span>Message</span>
+          <textarea name="message" rows="5" required></textarea>
+        </label>
+        <div class="form-actions">
+          <button class="btn primary" type="submit">Send</button>
+          <button class="btn outline" type="reset">Clear</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>© <span id="year"></span> Your Name</div>
+      <div class="social">
+        <a href="#">GitHub</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Twitter</a>
+      </div>
     </div>
-    <li><a href="project2.html">Project 2</a></li>
-    </div>
-    </div>
-    <li><a href="project3.html">Project 3</a></li>
-    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script src="./scripts.js"></script>
 </body>
+
 </html>
