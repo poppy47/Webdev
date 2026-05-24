@@ -39,19 +39,66 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //Write your code here//
-
 //CHALLENGE 1: GET All posts
-app.get("/", (req, res) => {
-  res.send(posts);
+
+app.get("/posts", (req, res) => {
+  res.json(posts)
 })
 
 //CHALLENGE 2: GET a specific post by id
+app.get("/post/:id", (req, res) => {
+  const id = parseInt(req.params.id); 
+  try{
+  for(let i = 0 ; i < posts.length; i++){
+    if (posts[i].id === id){
+      res.json(posts[i]);
+    }
+  }
+}catch(error){
+  res.send(error);
+}
+})
 
 //CHALLENGE 3: POST a new post
-
+app.post("/posts", (req,res) => {
+  const id = lastId +1;
+  lastId += 1;
+  const title = req.body.title;
+  const content = req.body.content;
+  const author = req.body.author;
+  const date = new Date().toDateString(); 
+  const newPost = {id:id , title:title , content:content, author:author, date:date}; 
+  posts.push(newPost);
+  console.log(`${newPost} added Successfully`); 
+})
+;
 //CHALLENGE 4: PATCH a post when you just want to update one parameter
+app.patch("/posts/:id", (req, res) =>{
+  const id = parseInt(req.params.id); 
+  const existingPost = posts.find((post) => post.id === id); 
+  const replacementPost = {
+    id : id, 
+    title :req.body.title || existingPost.title, 
+    content:req.body.title||existingPost.content,
+    author:req.body.author||existingPost.author
+  }; 
+  const searchIndex = posts.findIndex((post) => post.id === id ); 
+  posts[searchIndex] = replacementPost; 
+  console.log(posts[searchIndex]); 
+  res.json(replacementPost); 
+}); 
 
 //CHALLENGE 5: DELETE a specific post by providing the post id.
+app.delete("/posts/:id", (req, res) =>{
+  const id = parseInt(req.params.id); 
+  const searchIndex = posts.find((post) => post.id === id ); 
+  if (searchIndex > -1){
+    posts.splice(searchIndex, 1); 
+    res.sendStatus(200); 
+  }else{
+    res.status(404); 
+  }
+})
 
 app.listen(port, () => {
   console.log(`API is running at http://localhost:${port}`);

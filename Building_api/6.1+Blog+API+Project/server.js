@@ -7,6 +7,7 @@ const port = 3000;
 const API_URL = "http://localhost:4000";
 
 app.use(express.static("public"));
+app.set("view engine", "ejs");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
