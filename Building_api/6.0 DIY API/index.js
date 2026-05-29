@@ -84,7 +84,7 @@ app.delete("/jokes/:id" , (req, res) => {
     jokes.splice(searchIndex,1); 
     res.sendStatus(200);
   }else{
-    res.status(404)
+    res.status(404); 
   }
 })
 

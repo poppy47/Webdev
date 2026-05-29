@@ -30,7 +30,7 @@ app.get("/new", (req, res) => {
 
 app.get("/edit/:id", async (req, res) => {
   try {
-    const response = await axios.get(`${API_URL}/posts/${req.params.id}`);
+    const response = await axios.get(`${API_URL}/post/${req.params.id}`);
     console.log(response.data);
     res.render("modify.ejs", {
       heading: "Edit Post",
