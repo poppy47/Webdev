@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book - Book Notes</title>
+    <link rel="stylesheet" href="/bootstrap-css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+
+<body class="bg-light d-flex flex-column min-vh-100">
+
+<%- include("../partials/header.ejs") %>
+
+<main class="flex-grow-1 py-5">
+    <div class="container" style="max-width: 600px;">
+        <h1 class="mb-4 text-center">Add a New Book</h1> 
+        
+        <form action="/admin/add" method="post" class="p-4 bg-white border rounded shadow-sm mb-5">
+        
+            <div class="mb-3">
+                <label class="form-label fw-bold" for="bookName">Book Name</label>
+                <input type="text" name="name" id="bookName" placeholder="Enter Book Name" class="form-control" required> 
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold" for="authorName">Author Name</label>
+                <input type="text" name="author" id="authorName" placeholder="Enter Author Name" class="form-control" required> 
+            </div>
+
+            <div class="mb-3">
+                <label for="isbn" class="form-label fw-bold">Enter ISBN NO.</label>
+                <input type="number" name="isbn" id="isbn" placeholder="Enter ISBN Number" class="form-control" required> 
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold d-block">Rating</label>
+                <div class="d-flex flex-wrap gap-y-2">
+                    <div class="form-check form-check-inline d-flex align-items-center gap-1 me-2">
+                        <input class="form-check-input m-0" type="radio" name="rating" id="rating1" value="1" required>
+                        <label class="form-check-label ps-1" for="rating1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline d-flex align-items-center gap-1 me-2">
+                        <input class="form-check-input m-0" type="radio" name="rating" id="rating2" value="2">
+                        <label class="form-check-label ps-1" for="rating2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline d-flex align-items-center gap-1 me-2">
+                        <input class="form-check-input m-0" type="radio" name="rating" id="rating3" value="3">
+                        <label class="form-check-label ps-1" for="rating3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline d-flex align-items-center gap-1 me-2">
+                        <input class="form-check-input m-0" type="radio" name="rating" id="rating4" value="4">
+                        <label class="form-check-label ps-1" for="rating4">4</label>
+                    </div>
+                    <div class="form-check form-check-inline d-flex align-items-center gap-1 me-2">
+                        <input class="form-check-input m-0" type="radio" name="rating" id="rating5" value="5">
+                        <label class="form-check-label ps-1" for="rating5">5</label>
+                    </div>
+                    <div class="form-check form-check-inline d-flex align-items-center gap-1 me-2">
+                        <input class="form-check-input m-0" type="radio" name="rating" id="rating6" value="6">
+                        <label class="form-check-label ps-1" for="rating6">6</label>
+                    </div>
+                    <div class="form-check form-check-inline d-flex align-items-center gap-1 me-2">
+                        <input class="form-check-input m-0" type="radio" name="rating" id="rating7" value="7">
+                        <label class="form-check-label ps-1" for="rating7">7</label>
+                    </div>
+                    <div class="form-check form-check-inline d-flex align-items-center gap-1 me-2">
+                        <input class="form-check-input m-0" type="radio" name="rating" id="rating8" value="8">
+                        <label class="form-check-label ps-1" for="rating8">8</label>
+                    </div>
+                    <div class="form-check form-check-inline d-flex align-items-center gap-1 me-2">
+                        <input class="form-check-input m-0" type="radio" name="rating" id="rating9" value="9">
+                        <label class="form-check-label ps-1" for="rating9">9</label>
+                    </div>
+                    <div class="form-check form-check-inline d-flex align-items-center gap-1 me-2">
+                        <input class="form-check-input m-0" type="radio" name="rating" id="rating10" value="10">
+                        <label class="form-check-label ps-1" for="rating10">10</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label fw-bold">Book Description</label>
+                <textarea name="description" id="description" rows="2" placeholder="Enter short summary..." class="form-control"></textarea>
+            </div>
+
+            <div class="mb-4">
+                <label for="textarea" class="form-label fw-bold">Article / Detailed Notes</label> 
+                <textarea name="article" id="textarea" rows="5" placeholder="Write down your extensive book notes here..." class="form-control"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">Submit Book Note</button>
+        </form>
+    </div>
+</main>
+
+<%- include("../partials/footer.ejs") %>
+
+<script src="/bootstrap-js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
