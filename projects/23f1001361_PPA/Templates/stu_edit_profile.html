@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Student Edit-Profile</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="main-heading"><h1>Student </h1></div>
+      <div class="header-links">
+      <a href="{{ url_for('stu_dashboard')}}">Back</a>
+      <a href="{{ url_for('logout') }}">logout</a>
+      </div>
+    </header>
+    <main>
+      <h2>Update Profile </h2>
+        <form method="POST">
+            <label>Student Name</label>
+            <input type="text" name = "name" value = "{{ student.name }}"required>
+            <label>Department Name</label>
+            <input type="text" name="department" value="{{ student.department }}" required>
+            <label>Email</label>
+            <input type="email" name="email" value="{{ student.user.email }}" required>
+            <label>Resume(please upload the google drive link)</label>
+            <input type="text" name = "resume"  value ="{{ student.resume }}" required>
+            <label>UserName</label>
+            <input type="text" name="username" value="{{ student.user.username }}"  required>
+            <label>Password</label>
+            <input type="password" name="password" value = "{{ student.user.password }}" required>
+            <input type="submit" value="Update" class="submit-button">
+    </main>
+  </body>
+</html>

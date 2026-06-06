@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Company Details</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+
+  <body>
+    <header>
+      <div class="main-heading"><h1>Student</h1></div>
+      <div class="header-links">
+        <a href="{{ url_for('stu_dashboard') }}">Back</a>
+        <a href = "{{ url_for('logout') }}">Logout</a>
+      </div>
+    </header>
+    <main>
+        <div>
+            <h2>Company Details</h2>
+            <p>Company Name:{{ company.name }}</p>
+            <p>website: {{ company.website }}</p>
+        </div>
+        <div>
+            <h2>Current Drives</h2>
+            <table>
+                <thead>
+                    <th>Drive-Name</th>
+                    <th>Details</th>
+                </thead>
+                <tbody>
+                  {% for drive in drives %}
+                    {% if drive.is_completed == False %}
+                    <tr>
+                        <td>{{ drive.name }}</td>
+                        <td><a href="{{ url_for('stu_drive_details', id = drive.id )}}" class="submit-button">Details</a></td>
+                    </tr>
+                    {% endif %}
+                  {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+  </body>
+</html>

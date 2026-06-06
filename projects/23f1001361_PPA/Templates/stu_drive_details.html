@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Drive Details - Students</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="main-heading">
+        <h1>Student</h1>
+      </div>
+      <div class="header-links">
+        <a href="{{ url_for('stu_dashboard') }}">Back</a>
+        <a href="{{ url_for('logout') }}"> Logout </a>
+      </div>
+    </header>
+    <main style="display: flex; flex-direction: column;">
+        <h2>Drive Details </h2>
+        <p>Drive-Name: {{ drive.name }}</p>
+        <p>Job Title : {{ drive.job_title }}</p>
+        <p>Job Description:</p>
+        {{ drive.job_description }}
+        <p>Deadline: {{ drive.deadline }}</p>
+        {% if application == None %}
+        <a href="{{ url_for('apply', id = drive.id ) }}" class="submit-button">Apply</a>
+        {% else %} 
+        <h3>application status : {{ application.status }}</h3>
+        {% endif %}
+        <a href="{{ url_for('stu_dashboard') }}" class="submit-button">Back</a>
+    </main>
+  </body>
+</html>

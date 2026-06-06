@@ -1,0 +1,171 @@
+html body{
+    height: 100%;
+    margin: 0;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+body{ 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+header{
+    display: flex;
+    color: whitesmoke;
+    background-color:#712cf9;
+    flex-direction: row; 
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+main{
+    padding-left: 10px; 
+    padding-right: 10px;
+}
+
+
+.main-heading{
+    width: 50%;
+}
+
+.header-links{
+    display: flex;
+    width: 50%;
+    justify-content:space-around;
+}
+
+a{
+    padding:5px ;
+    text-decoration: none;
+    color: whitesmoke;
+}
+a:hover{
+    cursor: pointer;
+}
+
+
+.home-main{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+
+footer{
+    height: 2rem;
+    display: flex;
+    background-color: #712cf9;
+    color: whitesmoke;
+    align-items: center;
+    justify-content: center;
+}
+
+
+input{
+    height: 30px;
+    font-size: 15px;
+}
+
+table a{
+    color: blue;
+    text-decoration: underline;
+}
+
+textarea{
+    font-family: Arial, Helvetica, sans-serif; 
+    font-size: 1rem;
+}
+
+
+form{
+    width: 100%; 
+    margin-top: 1px; 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.submit-button{
+    padding: auto;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #0d6efd;
+    width:max-content; 
+    border: 2px solid #0d6efd;
+    color: white; 
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+.select-button{
+    text-decoration: none;
+    cursor: pointer;
+    height: 1.5rem;
+    background-color: #198754;
+    width:max-content; 
+    border: 2px solid #198754;
+    color: white; 
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+.reject-button{
+    text-decoration: none;
+    cursor: pointer;
+    background-color:#dc3545;
+    width: max-content; 
+    border: 2px solid #dc3545;
+    color: white; 
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+
+form label{
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+}
+
+
+thead{
+    background-color: #f0f0f0;
+}
+
+
+th{
+    text-align: left;
+    padding: 10px;
+    border-bottom: 2px solid #ccc;
+}
+
+
+tr{
+    border-bottom: 1px solid #ddd;
+}
+
+
+td{
+    padding: 10px;
+}
+
+
+details {
+    margin:10px; 
+}

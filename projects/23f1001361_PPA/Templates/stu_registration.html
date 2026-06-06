@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+    <div class="main-heading">
+        <h1>Placement Portal</h1>
+    </div>
+    <div class="header-links"> 
+    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('login') }}">login</a>
+    </div>
+  </header>
+  <main>
+    {{ message }}
+    <div>
+        <h1>Student Registration</h1>
+        <form method="POST">
+            <label>Student Name</label>
+            <input type="text" name = "name" required>
+            <label>Department Name</label>
+            <input type="text" name="department" required>
+            <label>Email</label>
+            <input type="email" name="email" required>
+            <label>Resume(please upload the google drive link)</label>
+            <input type="text" name = "resume" required>
+            <label>UserName</label>
+            <input type="text" name="username" required>
+            <label>Password</label>
+            <input type="password" name="password" required>
+            <input type="submit" value="Submit" class="submit-button">
+        <p>alredy registered? please <a href="{{ url_for('login') }}" style="color: blue;">Login</a></p>
+    </div>
+</main>
+</body>
+
+</html>

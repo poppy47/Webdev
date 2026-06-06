@@ -3,9 +3,9 @@ they make dev so much faster reather then building everything from the scratch
 
 a good resource -- rapid api 
 
-## what makes the api monetizable ? -- 
+## what makes the api monetizable ? 
 1.Large and valuable data collection -- A large collection of data 
-2.if you have the propritory service / algorithm -- a good algorithm saves the people 's time , they don't need to put everything from the secretch 
+2.if you have the propritory service / algorithm -- a good algorithm saves the people 's time , they don't need to put everything from the secretch.
 3.A simplified interface 
 
 

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Student-Application </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+
+<body>
+    <header>
+        <div class="main-heading">
+            <h1>Admin </h1>
+        </div>
+        <div class="header-links">
+            <a href="{{ url_for('logout') }}">logout</a>
+        </div>
+    </header>
+    <main>
+        <main>
+            <h1>Student Application</h1>
+            <p>Student Name : {{ student.name }}</p>
+            <p>Department : {{ student.department }}</p>
+            <p>Drive :{{ drive.name }}</p>
+            <p>Job Title : {{ drive.job_title }}</p>
+            <p>Resume:<a href="{{ student.resume }}" style="color: blue; text-decoration: underline;">Resume</a></p>
+            <p>Job Description: </p>
+            {{ drive.job_description }}
+            <p> Application Status : {{ application.status }}</p>
+            <br>
+            <a href="{{ url_for('admin_dash') }}" class="submit-button">Back</a>
+        </main>
+</body>
+
+</html>

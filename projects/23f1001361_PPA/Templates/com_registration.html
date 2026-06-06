@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Company Registration</title>
+</head>
+
+<body>
+    <header>
+        <div class="main-heading">
+            <h1>Placement Portal</h1>
+        </div>
+        <div class="header-links">
+            <a href="{{ url_for('logout') }}">Home</a>
+            <a href="{{ url_for('login') }}">login</a>
+        </div>
+    </header>
+    <main>
+        <div>
+            <h1>Company Registration</h1>
+            <form method="POST" style="display:flex; flex-direction: column;">
+                <label>Company Name</label>
+                <input type="text" name="name" required>
+                <label>Website</label>
+                <input type="text" name="website" required>
+                <label>HR Email</label>
+                <input type="email" name="email" required>
+                <label>UserName</label>
+                <input type="text" name="username" required>
+                <label>Password</label>
+                <input type="password" name="password" required>
+                <input type="submit" class="submit-button" value="Submit">
+            </form>
+            <p>alredy registered? please <a href="{{ url_for('login') }}" style="color: blue;">Login</a></p>
+        </div>
+    </main>
+</body>
+
+</html>

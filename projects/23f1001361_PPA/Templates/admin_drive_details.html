@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Drive Details </title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+
+<body class="deatils">
+  <header>
+    <div class="main-heading">
+      <h1>Admin</h1>
+    </div>
+    <div class="header-links"><a href="{{ url_for('logout') }}">logout</a></div>
+  </header>
+  <main>
+    <h2>Drive Details </h2>
+    <p>Company: {{ drive.company.name }}</p>
+    <p>Drive-Name : {{ drive.name }}</p>
+    <p>Job Title : {{ drive.job_title }}</p>
+    <p>Job Description: {{ drive.job_description}}</p>
+    <p>Deadline : {{ drive.deadline }}</p>
+    <a href="{{ url_for('admin_dash') }}" class="submit-button">Back</a>
+  </main>
+</body>
+
+</html>

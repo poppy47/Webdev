@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Company Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <header>
+        <div class="main-heading">
+            <h1>Compnay Dashboard</h1>
+        </div>
+        <div class="header-links"><a href="{{ url_for('logout') }}">logout</a></div>
+
+    </header>
+    <main>
+        <h1>Welcome {{ company.name }}</h1>
+        <div class="stu-org">
+            <a href="{{ url_for('create_drive', id = company.id) }}"
+               class="submit-button" style="margin-bottom: 20px;">Create-Drive</a>
+            <h2>Upcoming Drives</h2>
+            <table>
+                <thead>
+                    <th>Drive Name</th>
+                    <th>Details</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    {% for drive in drives %}
+                    <tr>
+                        {% if drive.is_completed == False %}
+                        <td>{{ drive.name }}</td>
+                        <td><a href="{{ url_for('drive_details', id = drive.id ) }}" class="submit-button">View Details</a></td>
+                        <td><a href="{{ url_for('mark_complete', id = drive.id) }}" class="submit-button">mark-complete</a></td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="applied-drives">
+            <h2>Closed Drives</h2>
+            <table>
+                <thead>
+                    <th>Drive-ID</th>
+                    <th>Drive-Name</th>
+                    <th>Details</th>
+                </thead>
+                <tbody>
+                    {% for drive in drives %}
+                    {% if drive.is_completed == True %}
+                    <tr>
+                        <td>{{ drive.id }}</td>
+                        <td>{{ drive.name }}</td>
+                        <td><a href="{{ url_for('drive_details', id = drive.id ) }}" class="submit-button">Details</a></td>
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+
+</html>

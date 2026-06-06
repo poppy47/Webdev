@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Student Details</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+
+<body>
+  <header>
+    <div class="main-heading">
+      <h1>Admin</h1>
+    </div>
+    <div class="header-links"><a href="{{ url_for('logout')}}">logout</a></div>
+
+  </header>
+  <main class="details">
+    <div>
+      <h2>Student Details</h2>
+      <p>Student-Name : {{ student.name }}</p>
+      <p>Email : {{ user.email }}</p>
+      <p>Department : {{ student.department }}</p>
+      <p>Resume-Link : <a href="{{ student.resume }}" style="color: blue; text-decoration: underline;">Resume</a></p>
+    </div>
+    <a href="{{ url_for('admin_dash') }}" class="submit-button">Back</a>
+  </main>
+</body>
+
+</html>

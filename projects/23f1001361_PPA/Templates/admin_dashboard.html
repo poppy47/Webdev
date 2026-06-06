@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+
+<body>
+    <header>
+        <div class="main-heading">
+            <h1>Admin Dashboard</h1>
+        </div>
+        <div class="header-links">
+            <a href="{{ url_for('logout') }}">logout</a>
+        </div>
+    </header>
+    <main>
+        <h1>Welcome Admin</h1>
+        <div class="stu-org">
+            <h3>Registered Companies</h3>
+            <table>
+                <thead>
+                    <th>Company-Name</th>
+                    <th>Details</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    {% for company in companies %}
+                    <tr>
+                        {% if company.is_verified %}
+                        <td>{{ company.name }}</td>
+                        <td>
+                            <a href="{{ url_for('comp_details', id=company.id) }}" class="submit-button">Details</a>
+                        </td>
+                        {% if company.user.is_blocked == False %}
+                        <td>
+                            <a href="{{ url_for('comp_blacklist', id = company.id) }}" class="reject-button">Blacklist</a>
+                        </td>
+                        {% else %}
+                        <td>Blocked</td>
+                        {% endif %} {% endif %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="applied-drives">
+            <h3>Registered Students</h3>
+            <table>
+                <thead>
+                    <th>Student Name</th>
+                    <th>Details</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    {% for student in students %}
+                    <tr>
+                        {% if student.user.is_blocked == False %}
+                        <td>{{ student.name }}</td>
+                        <td>
+                            <a href="{{ url_for('stu_details', id = student.id) }}" class="submit-button">Details</a>
+                        </td>
+                        <td>
+                            <a href="{{ url_for('blacklist', id = student.id) }}" class="reject-button">Blacklist</a>
+                        </td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <h3>Applied Companies</h3>
+            <table>
+                <thead>
+                    <th>Company Name</th>
+                    <th>Details</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    {% for company in companies %}
+                    <tr>
+                        {% if company.is_verified == False %}
+                        <td>{{ company.name }}</td>
+                        <td>
+                            <a href="{{ url_for('comp_details', id = company.id ) }}" class="submit-button">Details</a>
+                        </td>
+                        <td>
+                            <a href="{{ url_for('comp_approval', id = company.id) }}" class="select-button">Approve</a>
+                            <a href="{{ url_for('comp_rejection', id = company.id) }}" class="reject-button">Reject</a>
+                        </td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <h3>Ongoing Drives</h3>
+            <table>
+                <thead>
+                    <th>DriveName</th>
+                    <th>Details</th>
+                    <th>Actions</th>
+                </thead>
+                <tbody>
+                    {% for drive in drives %}
+                    <tr>
+                        {% if drive.company.user.is_blocked == False %}
+                        <td>{{ drive.name }}</td>
+                        <td>
+                            <a href="{{ url_for('admin_drive_details', id = drive.id ) }}" class="submit-button">Details</a>
+                        </td>
+                        {% if drive.is_completed == False%}
+                        <td>
+                            <a href="{{ url_for('mark_complete', id = drive.id )}}" class="reject-button">Suspend</a>
+                        </td>
+                        {% else %}
+                        <td>Completed</td>
+                        {% endif %} {% endif %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <h3>Student Applications</h3>
+            <table>
+                <thead>
+                    <th>S.R.No.</th>
+                    <th>Student</th>
+                    <th>Drive</th>
+                    <th>Company</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    {% for application in applications %}
+                    <tr>
+                        <td>{{ application.id }}</td>
+                        <td>{{ application.student.name }}</td>
+                        <td>{{ application.drive.name }}</td>
+                        <td>{{ application.drive.company.name }}</td>
+                        <td>
+                            <a href="{{ url_for('admin_stu_application' ,id = application.id )}}" class="submit-button">Details</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+
+</html>

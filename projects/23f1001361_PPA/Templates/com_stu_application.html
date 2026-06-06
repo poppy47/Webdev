@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Student-Application</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <header>
+    <div class="main-heading">
+      <h1>Company</h1>
+    </div>
+    <div class="header-links">
+      <a href="{{ url_for('com_dash') }}">Back</a>
+      <a href="{{ url_for('logout') }}">logout</a>
+    </div>
+  </header>
+  <main class="details">
+    <h1>Student Application</h1>
+    <p>Student Name : {{ student.name }}</p>
+    <p>Department : {{ student.department }}</p>
+    <p>Drive : {{ drive.name }}</p>
+    <p>Job Title : {{ drive.job_title }}</p>
+    <p>Resume: <a href="{{ student.resume }}" style="color: blue; text-decoration: underline;">Resume-Link</a></p>
+    {% if application.status == 'Applied' %}
+    <a href="{{ url_for('select', id = application.id ) }}" class="select-button">Select</a>
+    <a href="{{ url_for('reject', id = application.id )}}" class="reject-button">Reject</a>
+    {% else %}
+    <p>Application-status : {{ application.status }}</p>
+    {% endif %}
+    <br>
+    <div style="margin-top: 30px;">
+    <a href="{{ url_for('com_dash') }}" class="submit-button">Back</a></div>
+  </main>
+</body>
+
+</html>

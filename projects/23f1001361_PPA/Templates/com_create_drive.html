@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Company Create-Drive</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+
+<body>
+    <header>
+        <div class="main-heading">
+            <h1>Company</h1>
+        </div>
+        <div class="header-links"><a href="{{ url_for('logout') }}">logout</a></div>
+    </header>
+    <main>
+        <div>
+            <form method="post" style="display: grid;width: 500px">
+                <label for="drive_name">Drive Name</label>
+                <input type="text" id="drive_name" name="name" required />
+                <label for="job_title">Job Title</label>
+                <input type="text" id="job_title" name="job_title" required />
+                <label for="job_des">Job Description</label>
+                <textarea id="job_des" name="job_description"></textarea>
+                <label for="eligibility">Eligibility Criteria</label>
+                <input type="text" id="eligibility" name="eligibility" required />
+                <label for="deadline">Deadline</label>
+                <input type="date" id="deadline" name="deadline" required />
+                <input type="submit" value="Create" class="submit-button">
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Company Details</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+
+<body>
+  <header>
+    <div class="main-heading">
+      <h1>Admin</h1>
+    </div>
+    <div class="header-links">
+      <a href="{{ url_for('logout')}}">logout</a>
+    </div>
+  </header>
+  <main class="deatils">
+    <div>
+      <h2>Company Details</h2>
+      <p>Compnay Name : {{ company.name }}</p>
+      <p>HR Email : {{ user.email }}</p>
+      <p>wabsite : {{ company.website }}</p>
+    </div>
+    <a href="{{ url_for('admin_dash') }}" class="submit-button">Back</a>
+  </main>
+</body>
+
+</html>

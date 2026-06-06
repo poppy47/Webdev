@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <div class="main-heading">
+      <h1>Placement Portal</h1>
+    </div >
+    <div class = "header-links">
+    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('student_registration') }}">Student-Registration</a>
+    <a href="{{ url_for('company_registration') }}">Company-Registration</a>
+  </div>
+</header>
+ {{ message }}
+  <main>
+    <div>
+        <h1>Login</h1>
+        <form method="POST">
+            <p>UserName</p>
+            <input type="text" name="username" placeholder="UserName" required>
+            <p>Password</p>
+            <input type="password" name ="password" placeholder="password" required> 
+            <br>
+            <input type="submit" value="Submit" class="submit-button">
+        </form>
+    </div>
+</main>
+</body>
+</html>

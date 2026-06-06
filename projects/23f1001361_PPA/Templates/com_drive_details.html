@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Company Drive Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+    <div class="main-heading"><h1>Compnay </h1></div>
+    <div class="header-links">
+      <a href="{{ url_for('logout') }}">logout</a>
+    </div>
+    </header>
+    <main>
+        <h1>{{ drive.name }}'s Details</h1>
+        <p>Drive-ID : {{ drive.id }}</p>
+        <p>Job-title : {{ drive.job_title }}</p>
+        <p>Eligibility : {{ drive.eligibility }}</p>
+        <p>Job Description: </p>
+        <p>{{ drive.job_description }}</p>
+
+        <div class="stu-org">
+            <h3>Received Applications</h3>
+            <table>
+                <thead>
+                    <th>Student Name</th>
+                    <th>Review Application</th>
+                    <th>Application-status</th>
+                </thead>
+                <tbody>
+                    {% for application in applications %}
+                        {% if application.student.user.is_blocked == False %}
+                    <tr>
+                        <td>{{ application.student.name }}</td>
+                        <td><a href="{{ url_for('review_application', id = application.id )}}" class="submit-button">Review-Application</a></td>
+                        <td>{{ application.status }}</td>
+                    </tr>    
+                        {% endif %}
+                    {% endfor %}                 
+                </tbody>
+            </table>
+    </main>
+  </body>
+</html>
