@@ -1,2 +1,15 @@
-.env 
-node_modules
+# ── Node Modules ──────────────────────────
+node_modules/
+**/node_modules/
+**/node_modules/**
+
+# ── Environment Files ─────────────────────
+.env
+.env.*
+**/.env
+**/.env.*
+*.env
+
+# ── Keep example files ────────────────────
+!.env.example
+!**/.env.example
