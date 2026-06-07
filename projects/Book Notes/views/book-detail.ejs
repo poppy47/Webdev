@@ -1,0 +1,181 @@
+<%- include("./partials/header.ejs") %>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Book",
+        "name": "<%= book.title %>",
+        "author": { "@type": "Person", "name": "<%= book.author %>" },
+        "isbn": "<%= book.isbn %>",
+        "review": {
+            "@type": "Review",
+            "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "<%= book.rating %>",
+                "bestRating": "10"
+            },
+            "reviewBody": "<%= book.notes?.slice(0, 200) %>"
+        }
+    }
+    </script>
+
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 320px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 70% 50%, rgba(13, 110, 253, 0.15) 0%, transparent 60%);
+        }
+        .book-cover-wrapper {
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
+            transition: transform 0.3s ease;
+        }
+        .book-cover-wrapper:hover { transform: translateY(-6px) rotate(1deg); }
+        .book-cover-wrapper img {
+            width: 140px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px 10px 10px 4px;
+            border-left: 6px solid rgba(255,255,255,0.1);
+        }
+        .rating-pill {
+            background: linear-gradient(135deg, #ffc107, #ff9800);
+            color: #1a1a1a;
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 6px 16px;
+            border-radius: 50px;
+            display: inline-block;
+        }
+        .meta-chip {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: rgba(255,255,255,0.75);
+            border-radius: 50px;
+            padding: 4px 14px;
+            font-size: 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .notes-body {
+            background: #fff;
+            border-radius: 16px;
+            border: 1px solid rgba(0,0,0,0.07);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+        }
+        .notes-content {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #333;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        .section-label {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #0d6efd;
+        }
+        .back-btn { transition: all 0.2s ease; }
+        .back-btn:hover { transform: translateX(-4px); }
+        .description-box {
+            background: rgba(13, 110, 253, 0.04);
+            border-left: 3px solid #0d6efd;
+            border-radius: 0 8px 8px 0;
+        }
+    </style>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container py-5 position-relative">
+            <div class="row align-items-center g-4">
+
+                <div class="col-auto d-none d-sm-block">
+                    <div class="book-cover-wrapper">
+                        <img 
+                            src="https://covers.openlibrary.org/b/isbn/<%= book.isbn %>-L.jpg"
+                            alt="<%= book.title %> cover"
+                            onerror="this.src='https://placehold.co/140x200/1a1a2e/ffffff?text=No+Cover'"
+                        >
+                    </div>
+                </div>
+
+                <div class="col">
+                    <a href="/" class="back-btn text-decoration-none text-white-50 small d-inline-flex align-items-center gap-2 mb-3">
+                        ← Back to all books
+                    </a>
+                    <h1 class="text-white fw-bold mb-1" style="font-size: clamp(1.4rem, 4vw, 2.2rem); line-height: 1.25;">
+                        <%= book.title %>
+                    </h1>
+                    <p class="text-white-50 mb-3">by <span class="text-white fw-semibold"><%= book.author %></span></p>
+                    <div class="d-flex flex-wrap align-items-center gap-2">
+                        <span class="rating-pill">⭐ <%= book.rating %> / 10</span>
+                        <span class="meta-chip">📅 <%= new Date(book.read_date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) %></span>
+                        <span class="meta-chip">🔖 ISBN: <%= book.isbn %></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container py-5 flex-grow-1">
+        <div class="row justify-content-center g-4">
+            <div class="col-lg-8">
+
+                <% if (book.description) { %>
+                <div class="notes-body p-4 mb-4">
+                    <p class="section-label mb-2">Synopsis</p>
+                    <div class="description-box p-3">
+                        <p class="text-secondary mb-0" style="line-height: 1.8;"><%= book.description %></p>
+                    </div>
+                </div>
+                <% } %>
+
+                <div class="notes-body p-4 p-md-5">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <div>
+                            <p class="section-label mb-1">My Notes</p>
+                            <h2 class="h5 fw-bold text-dark mb-0">Key Takeaways & Thoughts</h2>
+                        </div>
+                        <span class="text-muted small">📝 Personal notes</span>
+                    </div>
+
+                    <hr class="mb-4" style="border-color: rgba(0,0,0,0.06);">
+
+                    <% if (book.notes && book.notes.trim().length > 0) { %>
+                        <div class="notes-content"><%= book.notes %></div>
+                    <% } else { %>
+                        <div class="text-center py-5 text-muted">
+                            <p style="font-size: 2rem;">📭</p>
+                            <p class="mb-0">No notes added for this book yet.</p>
+                        </div>
+                    <% } %>
+                </div>
+
+                <% if (locals.user && user.isAdmin) { %>
+                <div class="text-end mt-3">
+                    <a href="/admin/edit/<%= book.isbn %>" class="btn btn-warning rounded-pill px-4 fw-semibold">
+                        ✏️ Edit This Book
+                    </a>
+                </div>
+                <% } %>
+
+            </div>
+        </div>
+    </main>
+
+<%- include("./partials/footer.ejs") %>
+
+<script src="/bootstrap-js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

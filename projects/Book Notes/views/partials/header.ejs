@@ -1,3 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <title><%= typeof title !== 'undefined' ? title : 'BookNotes' %></title>
+    <meta name="description" content="<%= typeof description !== 'undefined' ? description : 'A personal reading archive with notes and insights.' %>">
+    <meta name="author" content="Sukhdev Singh">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="<%= typeof title !== 'undefined' ? title : 'BookNotes' %>">
+    <meta property="og:description" content="<%= typeof description !== 'undefined' ? description : 'A personal reading archive.' %>">
+    <meta property="og:image" content="<%= typeof ogImage !== 'undefined' ? ogImage : '/images/default-og.png' %>">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<%= typeof title !== 'undefined' ? title : 'BookNotes' %>">
+    <meta name="twitter:description" content="<%= typeof description !== 'undefined' ? description : 'A personal reading archive.' %>">
+
+    <link rel="stylesheet" href="/bootstrap-css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body class="bg-light d-flex flex-column min-vh-100">
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm py-3">
   <div class="container">
     <a class="navbar-brand d-flex align-items-center fw-bold text-uppercase tracking-wide" href="/">
