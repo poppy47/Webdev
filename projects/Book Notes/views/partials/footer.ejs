@@ -20,4 +20,17 @@
 
     </div>
   </div>
+
+  <script>
+    document.querySelectorAll('img.book-cover').forEach(img => {
+        img.onerror = function() {
+            if (this.src.includes('openlibrary')) {
+                this.src = `https://books.google.com/books/content?vid=ISBN${this.dataset.isbn}&printsec=frontcover&img=1&zoom=1&source=gbs_api`;
+                this.onerror = function() {
+                    this.src = 'https://placehold.co/140x200/1a1a2e/ffffff?text=No+Cover';
+                };
+            }
+        };
+    });
+  </script>
 </footer>

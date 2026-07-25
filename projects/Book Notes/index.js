@@ -9,37 +9,35 @@ import { fileURLToPath } from 'url';
 import session from "express-session";
 import helmet from "helmet";
 import env from "dotenv";
+import https from "https"
 import { SitemapStream, streamToPromise } from "sitemap";
 import compression from "compression";
 import pg from "pg";
 
-const app = express();
-const port = process.env.PORT || 3000;
+
 env.config();
+const app = express();
+app.set("trust proxy", 1); 
+const port = process.env.PORT || 3000;
+
 
 app.use(
     session({
-        secret: process.env.SESSION_SECRET,
+        secret: process.env.SESSION_SECRET || "fallback-secret-change-this",
         resave: false,
         saveUninitialized: false,
     })
 );
 
 // Use DATABASE_URL (Render) if available, else fall back to individual vars (local)
-const db = new pg.Pool(
-    process.env.DATABASE_URL
-        ? {
-              connectionString: process.env.DATABASE_URL,
-              ssl: { rejectUnauthorized: false },
-          }
-        : {
-              user: process.env.PG_USER,
-              host: process.env.PG_HOST,
-              database: process.env.PG_DATABASE,
-              password: process.env.PG_PASSWORD,
-              port: process.env.PG_PORT,
-          }
-);
+const db = new pg.Pool({
+    user: process.env.PG_USER,
+    host: process.env.PG_HOST,
+    database: process.env.PG_DATABASE,
+    password: process.env.PG_PASSWORD,
+    port: process.env.PG_PORT,
+    ssl: process.env.NODE_ENV === "production" ? { rejectUnauthorized: false } : false
+});
 
 db.connect().then(() => console.log("connected to postgreSQL")).catch((err) => console.log(err));
 
@@ -66,6 +64,8 @@ app.use(
                     "data:",
                     "https://covers.openlibrary.org",
                     "https://placehold.co",
+                    "https://books.google.com",           // ← add
+                    "https://books.googleusercontent.com", // ← add
                 ],
                 fontSrc: ["'self'"],
                 connectSrc: ["'self'"],
@@ -79,6 +79,14 @@ app.use(passport.session());
 
 app.use('/bootstrap-css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')));
 app.use('/bootstrap-js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')));
+
+setInterval(()=>{
+    https.get(process.env.APP_URL,(res) =>{
+        console.log(`self-ping:${res.statusCode}`); 
+    }).on("error", (err) =>{
+        console.log("self-ping error:", err.message);
+    });
+}, 10*60*1000) //every 10 minutes
 
 async function getBooks() {
     const result = await db.query("SELECT * FROM books");
@@ -266,8 +274,10 @@ app.get("/admin/logout", (req, res, next) => {
 passport.use(
     "local",
     new Strategy(async function verify(username, password, cb) {
+        
         if (username !== process.env.ADMIN) return cb(null, false);
         const isMatch = await bcrypt.compare(password, process.env.PASSWORD);
+        console.log("Password match:", isMatch);
         return isMatch ? cb(null, { username }) : cb(null, false);
     })
 );
